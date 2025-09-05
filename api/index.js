@@ -20,8 +20,8 @@ module.exports = function handler(req, res) {
   // Handle both GET (direct visits) and POST (Brightspace LTI) requests
   if (req.method === 'GET' || req.method === 'POST') {
     try {
-      // Read and serve the index.html file
-      const htmlPath = path.join(process.cwd(), 'index.html');
+      // Read and serve the _index.html file
+      const htmlPath = path.join(process.cwd(), '_index.html');
       const htmlContent = fs.readFileSync(htmlPath, 'utf8');
       
       res.setHeader('Content-Type', 'text/html');
