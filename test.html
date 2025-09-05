@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. Syllabus Test Page</title>
+</head>
+<body>
+    <h1>Ask Mr. Syllabus</h1>
+    <input type="text" id="questionInput" placeholder="e.g., When are your office hours?" size="50">
+    <button onclick="askQuestion()">Send</button>
+    <p><strong>Answer:</strong></p>
+    <p id="answer"></p>
+
+    <script>
+        async function askQuestion() {
+            const question = document.getElementById('questionInput').value;
+            const answerParagraph = document.getElementById('answer');
+            
+            answerParagraph.textContent = 'Thinking...';
+
+            try {
+                const response = await fetch('http://localhost:3000/ask', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ question: question })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    answerParagraph.textContent = data.answer;
+                } else {
+                    answerParagraph.textContent = `Error: ${data.error}`;
+                }
+            } catch (error) {
+                answerParagraph.textContent = `An error occurred: ${error.message}`;
+            }
+        }
+    </script>
+</body>
+</html>
