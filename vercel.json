@@ -8,6 +8,10 @@
     {
       "source": "/ask",
       "destination": "/api/ask"
+    },
+    {
+      "source": "/course-info",
+      "destination": "/api/course-info"
     }
   ]
 }

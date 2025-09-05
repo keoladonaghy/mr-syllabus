@@ -24,10 +24,24 @@ const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
 // --- Google Docs API Authentication and Function to Read Syllabus ---
 async function getAuthClient() {
-  const auth = new JWT({
-    keyFile: KEY_FILE_PATH,
-    scopes: SCOPES,
-  });
+  let auth;
+  
+  if (process.env.GOOGLE_SERVICE_ACCOUNT_KEY) {
+    // Use service account key from environment variable
+    const serviceAccountKey = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_KEY);
+    auth = new JWT({
+      email: serviceAccountKey.client_email,
+      key: serviceAccountKey.private_key,
+      scopes: SCOPES,
+    });
+  } else {
+    // Fallback to key file method
+    auth = new JWT({
+      keyFile: KEY_FILE_PATH,
+      scopes: SCOPES,
+    });
+  }
+  
   return auth;
 }
 
@@ -63,6 +77,52 @@ function extractTextFromDoc(content) {
     }
   }
   return text;
+}
+
+// Function to extract course information from syllabus text
+async function extractCourseInfo(syllabusText) {
+  try {
+    const prompt = `Extract the following information from this syllabus text and return it in JSON format:
+
+1. Course name and alpha-numeric code (usually 3-4 letters + 3 numbers, sometimes + single letter like "a/b/c")
+2. Semester and year (look for semester dates - if start date is August/08 = Fall, if January/01 = Spring)
+3. Instructor's name (usually follows "instructor:" but may be formatted differently)
+
+Return ONLY a JSON object with this structure:
+{
+  "courseName": "Full course name",
+  "courseCode": "COURSE123",
+  "semester": "Fall",
+  "year": "2024",
+  "instructor": "Professor Name"
+}
+
+If any information is not found, use "Not found" as the value.
+
+Syllabus text:
+${syllabusText}`;
+
+    const result = await model.generateContent(prompt);
+    const response = result.response;
+    const text = await response.text();
+    
+    // Try to extract JSON from the response
+    const jsonMatch = text.match(/\{[\s\S]*\}/);
+    if (jsonMatch) {
+      return JSON.parse(jsonMatch[0]);
+    } else {
+      throw new Error('Could not extract JSON from response');
+    }
+  } catch (err) {
+    console.error('Error extracting course info:', err);
+    return {
+      courseName: "Not found",
+      courseCode: "Not found", 
+      semester: "Not found",
+      year: "Not found",
+      instructor: "Not found"
+    };
+  }
 }
 
 // Read the syllabus once when the server starts up
@@ -106,6 +166,21 @@ Your answer:`;
   } catch (err) {
     console.error('The Gemini API returned an error: ' + err);
     res.status(500).json({ error: 'An error occurred while processing your request.' });
+  }
+});
+
+// --- API Endpoint to Extract Course Information ---
+app.get('/course-info', async (req, res) => {
+  if (!syllabusContent) {
+    return res.status(503).json({ error: 'Syllabus content is not yet available. Please try again in a moment.' });
+  }
+
+  try {
+    const courseInfo = await extractCourseInfo(syllabusContent);
+    res.json(courseInfo);
+  } catch (err) {
+    console.error('Error extracting course information:', err);
+    res.status(500).json({ error: 'An error occurred while extracting course information.' });
   }
 });
 

@@ -26,7 +26,20 @@
         .subtitle {
             text-align: center;
             color: #666;
+            margin-bottom: 20px;
+        }
+        .course-info {
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px; /* 2 points larger than subtitle default */
+            color: #333;
             margin-bottom: 30px;
+            line-height: 1.4;
+        }
+        .course-info .loading {
+            font-weight: normal;
+            font-style: italic;
+            color: #666;
         }
         .input-group {
             display: flex;
@@ -82,6 +95,10 @@
         <h1>🎓 Ask Mr. Syllabus</h1>
         <p class="subtitle">Get answers about your course policies, deadlines, and requirements <strong>before</strong> emailing your instructor! Find out how to contact student support offices and more!</p>
         
+        <div class="course-info" id="courseInfo">
+            <div class="loading">Loading course information...</div>
+        </div>
+        
         <div class="input-group">
             <input type="text" 
                    id="questionInput" 
@@ -96,6 +113,29 @@
     </div>
 
     <script>
+        // Load course information when page loads
+        window.addEventListener('DOMContentLoaded', loadCourseInfo);
+
+        async function loadCourseInfo() {
+            const courseInfoDiv = document.getElementById('courseInfo');
+            
+            try {
+                const response = await fetch('/course-info');
+                const data = await response.json();
+                
+                if (response.ok) {
+                    courseInfoDiv.innerHTML = `
+                        <div>${data.courseCode} - ${data.courseName} - ${data.semester} ${data.year}</div>
+                        <div>Instructor: ${data.instructor}</div>
+                    `;
+                } else {
+                    courseInfoDiv.innerHTML = '<div class="loading">Course information unavailable</div>';
+                }
+            } catch (error) {
+                courseInfoDiv.innerHTML = '<div class="loading">Course information unavailable</div>';
+            }
+        }
+
         function handleKeyPress(event) {
             if (event.key === 'Enter') {
                 askQuestion();
