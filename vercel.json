@@ -1,5 +1,8 @@
 {
   "functions": {
+    "api/index.js": {
+      "maxDuration": 30
+    },
     "api/ask.js": {
       "maxDuration": 30
     },
@@ -8,6 +11,10 @@
     }
   },
   "rewrites": [
+    {
+      "source": "/",
+      "destination": "/api/index"
+    },
     {
       "source": "/ask",
       "destination": "/api/ask"
