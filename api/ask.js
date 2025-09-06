@@ -24,11 +24,13 @@ const CLAUDE_API_KEY = process.env.CLAUDE_API_KEY;
 const DOCUMENT_ID = '1SjrxnkfMisN_SI6cfCbdsAbIc8-vCZTmdBlXBEt0ZMc';
 const SCOPES = ['https://www.googleapis.com/auth/documents.readonly'];
 
-// Initialize Claude AI for fallback
+// Initialize Claude AI for fallback with optimized settings
 let anthropic;
 if (CLAUDE_API_KEY) {
   anthropic = new Anthropic({
     apiKey: CLAUDE_API_KEY,
+    timeout: 45000, // 45 second timeout
+    maxRetries: 2,  // Retry failed requests
   });
 }
 

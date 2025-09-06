@@ -4,10 +4,13 @@
       "maxDuration": 30
     },
     "api/ask.js": {
-      "maxDuration": 30
+      "maxDuration": 60
     },
     "api/course-info.js": {
       "maxDuration": 30
+    },
+    "api/test-claude.js": {
+      "maxDuration": 60
     }
   },
   "rewrites": [

@@ -31,10 +31,12 @@ module.exports = async function handler(req, res) {
       });
     }
 
-    // Initialize Anthropic
+    // Initialize Anthropic with optimized settings
     console.log('Initializing Anthropic client...');
     const anthropic = new Anthropic({
       apiKey: process.env.CLAUDE_API_KEY,
+      timeout: 45000, // 45 second timeout
+      maxRetries: 2,  // Retry failed requests
     });
 
     // Test API call
