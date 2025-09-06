@@ -452,8 +452,8 @@
       "category": "instructor",
       "keywords": ["book", "book title", "author", "published", "writing"],
       "question": "What is the title of Dr. Donaghy's book?",
-      "alternateQuestions": ["Did Dr. Donaghy write a book?", "What book did the instructor publish?"],
-      "answer": "Dr. Donaghy's book is titled 'Mele On The Mauna: Perpetuating Genealogies of Hawaiian Musical Activism,' published by Indiana University Press. It discusses the role music played in the struggle to defend Maunakea."
+      "alternateQuestions": ["Did Dr. Donaghy write a book?", "What book did the instructor publish?", "Has Dr. Donaghy written books before?", "Is this his first book?"],
+      "answer": "Dr. Donaghy's book is titled 'Mele On The Mauna: Perpetuating Genealogies of Hawaiian Musical Activism,' published by Indiana University Press. It discusses the role music played in the struggle to defend Maunakea. This is his first book, so he has not written any books previously."
     },
     {
       "id": 57,
