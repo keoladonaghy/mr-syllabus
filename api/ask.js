@@ -108,6 +108,14 @@ Your answer:`;
     res.json({ answer: text });
   } catch (err) {
     console.error('Error processing request: ' + err);
-    res.status(500).json({ error: 'An error occurred while processing your request.' });
+    
+    // Check for quota exceeded error
+    if (err.message && err.message.includes('429') && err.message.includes('quota')) {
+      res.status(503).json({ 
+        error: 'Mr. Syllabus is temporarily at capacity. Please try again later today or tomorrow. If this continues, please contact your instructor.' 
+      });
+    } else {
+      res.status(500).json({ error: 'An error occurred while processing your request. Please try again in a few moments.' });
+    }
   }
 }

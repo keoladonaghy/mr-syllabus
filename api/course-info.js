@@ -92,13 +92,25 @@ ${syllabusContent.substring(0, 2000)}`;
     }
   } catch (err) {
     console.error('Error extracting course info:', err);
-    return {
-      courseName: "Not found",
-      courseCode: "Not found", 
-      semester: "Not found",
-      year: "Not found",
-      instructor: "Not found"
-    };
+    
+    // Check for quota exceeded error
+    if (err.message && err.message.includes('429') && err.message.includes('quota')) {
+      return {
+        courseName: "Service temporarily unavailable",
+        courseCode: "Please try again later",
+        semester: "",
+        year: "",
+        instructor: "Contact instructor if this continues"
+      };
+    } else {
+      return {
+        courseName: "Not found",
+        courseCode: "Not found", 
+        semester: "Not found",
+        year: "Not found",
+        instructor: "Not found"
+      };
+    }
   }
 }
 
@@ -138,6 +150,18 @@ export default async function handler(req, res) {
     res.json(courseInfo);
   } catch (err) {
     console.error('Error processing request: ' + err);
-    res.status(500).json({ error: 'An error occurred while processing your request.' });
+    
+    // Check for quota exceeded error
+    if (err.message && err.message.includes('429') && err.message.includes('quota')) {
+      res.status(503).json({ 
+        courseName: "Service temporarily unavailable",
+        courseCode: "Please try again later", 
+        semester: "",
+        year: "",
+        instructor: "Contact instructor if this continues"
+      });
+    } else {
+      res.status(500).json({ error: 'An error occurred while processing your request.' });
+    }
   }
 }
