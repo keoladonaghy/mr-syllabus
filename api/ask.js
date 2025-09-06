@@ -4,6 +4,7 @@ const QAMatcher = require('../qa-matcher');
 const { google } = require('googleapis');
 const { JWT } = require('google-auth-library');
 const Anthropic = require('@anthropic-ai/sdk');
+const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 // Load Q&A database
 let qaDatabase;
@@ -18,13 +19,14 @@ try {
   console.error('❌ Failed to load Q&A database:', error);
 }
 
-// Hybrid System: Q&A Database + Claude API fallback
+// Multi-Tier Hybrid System: Q&A Database + Claude API + Gemini fallback
 // Configuration
 const CLAUDE_API_KEY = process.env.CLAUDE_API_KEY;
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const DOCUMENT_ID = '1SjrxnkfMisN_SI6cfCbdsAbIc8-vCZTmdBlXBEt0ZMc';
 const SCOPES = ['https://www.googleapis.com/auth/documents.readonly'];
 
-// Initialize Claude AI for fallback with optimized settings
+// Initialize Claude AI for primary fallback
 let anthropic;
 if (CLAUDE_API_KEY) {
   anthropic = new Anthropic({
@@ -32,6 +34,13 @@ if (CLAUDE_API_KEY) {
     timeout: 45000, // 45 second timeout
     maxRetries: 2,  // Retry failed requests
   });
+}
+
+// Initialize Gemini AI for secondary fallback
+let geminiModel;
+if (GEMINI_API_KEY) {
+  const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
+  geminiModel = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 }
 
 // Google Docs API functions
@@ -128,6 +137,37 @@ Please provide a helpful answer based on the syllabus:`;
   return response.content[0].text;
 }
 
+async function askGeminiWithGoogleDoc(question) {
+  if (!geminiModel) {
+    throw new Error('Gemini API not configured');
+  }
+  
+  console.log('🔍 Debug: Using Gemini as secondary fallback...');
+  const syllabusContent = await readGoogleDoc();
+  if (!syllabusContent) {
+    throw new Error('Could not access Google Doc');
+  }
+  
+  const prompt = `You are Mr. Syllabus, a helpful AI assistant for students. Answer the user's question based **only** on the following syllabus content.
+
+Guidelines:
+- Be concise and direct
+- If the answer is not in the syllabus, say you don't have that specific information
+- Suggest contacting the instructor for clarification when appropriate
+- Be helpful and student-friendly
+
+Syllabus Content:
+${syllabusContent}
+
+Student Question: ${question}
+
+Please provide a helpful answer based on the syllabus:`;
+
+  const result = await geminiModel.generateContent(prompt);
+  const response = result.response;
+  return await response.text();
+}
+
 // Vercel serverless function handler  
 module.exports = async function handler(req, res) {
   // Enable CORS
@@ -176,29 +216,48 @@ module.exports = async function handler(req, res) {
       });
     }
 
-    // Step 3: If confidence is too low, fall back to Google Doc + Claude AI
-    console.log(`🔄 Low confidence (${(match.confidence * 100).toFixed(1)}%), falling back to Google Doc + Claude`);
+    // Step 3: Multi-tier AI fallback system
+    console.log(`🔄 Low confidence (${(match.confidence * 100).toFixed(1)}%), using AI fallback`);
     
-    try {
-      const claudeAnswer = await askClaudeWithGoogleDoc(question);
-      return res.json({
-        answer: claudeAnswer,
-        confidence: 0.8, // Claude responses get fixed confidence
-        category: 'claude_fallback',
-        source: 'google_doc_claude'
-      });
-    } catch (claudeError) {
-      console.error('❌ Claude fallback failed:', claudeError.message);
-      console.error('❌ Full error:', claudeError);
-      
-      // Step 4: If everything fails, return the best database match anyway
-      return res.json({
-        answer: match.answer + "\n\nNote: I couldn't access the live syllabus to provide a more detailed answer. Please check the complete syllabus in Lamakū or contact Dr. Keola Donaghy at donaghy@hawaii.edu for clarification.",
-        confidence: match.confidence,
-        category: match.category,
-        source: 'database_fallback'
-      });
+    // Try Claude API first
+    if (anthropic) {
+      try {
+        console.log('🔄 Attempting Claude API...');
+        const claudeAnswer = await askClaudeWithGoogleDoc(question);
+        return res.json({
+          answer: claudeAnswer,
+          confidence: 0.8,
+          category: 'claude_fallback',
+          source: 'google_doc_claude'
+        });
+      } catch (claudeError) {
+        console.error('❌ Claude fallback failed:', claudeError.message);
+        console.log('🔄 Trying Gemini as secondary fallback...');
+      }
     }
+    
+    // Try Gemini API as secondary fallback
+    if (geminiModel) {
+      try {
+        const geminiAnswer = await askGeminiWithGoogleDoc(question);
+        return res.json({
+          answer: geminiAnswer,
+          confidence: 0.7,
+          category: 'gemini_fallback', 
+          source: 'google_doc_gemini'
+        });
+      } catch (geminiError) {
+        console.error('❌ Gemini fallback also failed:', geminiError.message);
+      }
+    }
+    
+    // Step 4: If all AI fails, return database match with disclaimer
+    return res.json({
+      answer: match.answer + "\n\nNote: I couldn't access the live syllabus to provide a more detailed answer. Please check the complete syllabus in Lamakū or contact Dr. Keola Donaghy at donaghy@hawaii.edu for clarification.",
+      confidence: match.confidence,
+      category: match.category,
+      source: 'database_fallback'
+    });
     
   } catch (err) {
     console.error('Error processing request: ' + err);
