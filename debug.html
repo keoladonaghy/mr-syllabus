@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug - Mr. Syllabus</title>
+</head>
+<body>
+    <h1>🐛 Debug Mr. Syllabus Q&A System</h1>
+    
+    <div>
+        <h2>Test Course Info</h2>
+        <button onclick="testCourseInfo()">Test Course Info API</button>
+        <pre id="courseResult"></pre>
+    </div>
+    
+    <div>
+        <h2>Test Q&A</h2>
+        <input type="text" id="testQuestion" value="Who is the instructor?" style="width: 300px;">
+        <button onclick="testQuestion()">Test Question</button>
+        <pre id="qaResult"></pre>
+    </div>
+    
+    <div>
+        <h2>Console Logs</h2>
+        <pre id="logs"></pre>
+    </div>
+
+    <script>
+        function log(message) {
+            const logs = document.getElementById('logs');
+            logs.textContent += new Date().toLocaleTimeString() + ': ' + message + '\n';
+            console.log(message);
+        }
+
+        async function testCourseInfo() {
+            log('Testing course-info endpoint...');
+            try {
+                const response = await fetch('/course-info');
+                const data = await response.json();
+                document.getElementById('courseResult').textContent = JSON.stringify(data, null, 2);
+                log('Course info success: ' + JSON.stringify(data));
+            } catch (error) {
+                document.getElementById('courseResult').textContent = 'Error: ' + error.message;
+                log('Course info error: ' + error.message);
+            }
+        }
+
+        async function testQuestion() {
+            const question = document.getElementById('testQuestion').value;
+            log('Testing Q&A with question: "' + question + '"');
+            
+            try {
+                const response = await fetch('/ask', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ question: question })
+                });
+                
+                log('Response status: ' + response.status);
+                const data = await response.json();
+                document.getElementById('qaResult').textContent = JSON.stringify(data, null, 2);
+                log('Q&A success: ' + JSON.stringify(data));
+            } catch (error) {
+                document.getElementById('qaResult').textContent = 'Error: ' + error.message;
+                log('Q&A error: ' + error.message);
+            }
+        }
+
+        // Auto-test on load
+        window.addEventListener('DOMContentLoaded', () => {
+            log('Debug page loaded');
+            testCourseInfo();
+        });
+    </script>
+</body>
+</html>
