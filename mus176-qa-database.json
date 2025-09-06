@@ -122,9 +122,9 @@
     {
       "id": 15,
       "category": "policy",
-      "keywords": ["late", "policy", "missing", "deadline"],
+      "keywords": ["late", "late policy", "late work", "late assignment", "late submission", "missing", "deadline", "after deadline"],
       "question": "What's the late assignment policy?",
-      "alternateQuestions": ["Can I turn in late work?", "What happens if I miss a deadline?"],
+      "alternateQuestions": ["Can I turn in late work?", "What happens if I miss a deadline?", "Can I submit work after the deadline?"],
       "answer": "Late assignments are NOT accepted except under unusual circumstances, with advance notice and approval from your instructor, or in case of documentable hardship or emergency. No late submissions without prior notification and approval."
     },
     {
@@ -138,17 +138,17 @@
     {
       "id": 17,
       "category": "grade",
-      "keywords": ["grades", "grading", "breakdown", "weight"],
+      "keywords": ["grades", "grading", "breakdown", "weight", "calculated", "determined", "distribution", "policy", "system"],
       "question": "How are grades calculated?",
-      "alternateQuestions": ["What's the grading breakdown?", "How is my grade determined?"],
+      "alternateQuestions": ["What's the grading breakdown?", "How is my grade determined?", "What's the grading policy?", "How are grades weighted?"],
       "answer": "Grades are weighted as follows: Quizzes = 30%, Assignments/Forum Discussions = 15%, Midterm Exam = 25%, Final Research Proposal/Draft/Submission = 30%."
     },
     {
       "id": 18,
-      "category": "grade",
-      "keywords": ["grading scale", "percentage", "letter grade"],
+      "category": "grade", 
+      "keywords": ["grading scale", "percentage", "letter grade", "points", "scale", "grade scale"],
       "question": "What's the grading scale?",
-      "alternateQuestions": ["What percentage do I need for an A?", "How are letter grades assigned?"],
+      "alternateQuestions": ["What percentage do I need for an A?", "How are letter grades assigned?", "What are the grade cutoffs?"],
       "answer": "The grading scale is: A (90-100%), B (80-89%), C (70-79%), D (60-69%), F (0-59%). No pluses or minuses are used in the UH Community College system."
     },
     {
