@@ -83,14 +83,21 @@ function extractTextFromDoc(content) {
 }
 
 async function askClaudeWithGoogleDoc(question) {
+  console.log('🔍 Debug: Checking Claude API configuration...');
+  console.log(`   CLAUDE_API_KEY present: ${!!process.env.CLAUDE_API_KEY}`);
+  console.log(`   anthropic initialized: ${!!anthropic}`);
+  
   if (!anthropic) {
     throw new Error('Claude API not configured');
   }
   
+  console.log('🔍 Debug: Attempting to read Google Doc...');
   const syllabusContent = await readGoogleDoc();
   if (!syllabusContent) {
     throw new Error('Could not access Google Doc');
   }
+  
+  console.log('🔍 Debug: Both Claude and Google Doc available, making API call...');
   
   const prompt = `You are Mr. Syllabus, a helpful AI assistant for students. Answer the user's question based **only** on the following syllabus content. 
 
@@ -180,6 +187,7 @@ module.exports = async function handler(req, res) {
       });
     } catch (claudeError) {
       console.error('❌ Claude fallback failed:', claudeError.message);
+      console.error('❌ Full error:', claudeError);
       
       // Step 4: If everything fails, return the best database match anyway
       return res.json({
