@@ -40,5 +40,5 @@ console.log('\n✅ Hybrid System Logic Test Complete!');
 console.log('\n🔧 System Configuration:');
 console.log(`   • Database threshold: 25%`);
 console.log(`   • Q&A pairs loaded: ${qaDatabase.qaPairs.length}`);
-console.log(`   • Fallback: Google Doc + Gemini AI`);
+console.log(`   • Fallback: Google Doc + Claude AI`);
 console.log(`   • Final fallback: Database match with disclaimer`);

@@ -3,7 +3,7 @@ const path = require('path');
 const QAMatcher = require('../qa-matcher');
 const { google } = require('googleapis');
 const { JWT } = require('google-auth-library');
-const { GoogleGenerativeAI } = require('@google/generative-ai');
+const Anthropic = require('@anthropic-ai/sdk');
 
 // Load Q&A database
 let qaDatabase;
@@ -18,18 +18,18 @@ try {
   console.error('❌ Failed to load Q&A database:', error);
 }
 
-// Hybrid System: Q&A Database + Google Docs API fallback
+// Hybrid System: Q&A Database + Claude API fallback
 // Configuration
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+const CLAUDE_API_KEY = process.env.CLAUDE_API_KEY;
 const DOCUMENT_ID = '1SjrxnkfMisN_SI6cfCbdsAbIc8-vCZTmdBlXBEt0ZMc';
 const SCOPES = ['https://www.googleapis.com/auth/documents.readonly'];
 
-// Initialize Gemini AI for fallback
-let genAI;
-let model;
-if (GEMINI_API_KEY) {
-  genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-  model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+// Initialize Claude AI for fallback
+let anthropic;
+if (CLAUDE_API_KEY) {
+  anthropic = new Anthropic({
+    apiKey: CLAUDE_API_KEY,
+  });
 }
 
 // Google Docs API functions
@@ -82,9 +82,9 @@ function extractTextFromDoc(content) {
   return text;
 }
 
-async function askGeminiWithGoogleDoc(question) {
-  if (!model) {
-    throw new Error('Gemini API not configured');
+async function askClaudeWithGoogleDoc(question) {
+  if (!anthropic) {
+    throw new Error('Claude API not configured');
   }
   
   const syllabusContent = await readGoogleDoc();
@@ -92,19 +92,31 @@ async function askGeminiWithGoogleDoc(question) {
     throw new Error('Could not access Google Doc');
   }
   
-  const prompt = `You are Mr. Syllabus, a helpful AI assistant. Answer the user's questions based **only** on the following syllabus text. If the answer is not found in the syllabus, state that you do not have that specific information and suggest they contact the instructor.
+  const prompt = `You are Mr. Syllabus, a helpful AI assistant for students. Answer the user's question based **only** on the following syllabus content. 
 
-Syllabus:
+Guidelines:
+- Be concise and direct
+- If the answer is not in the syllabus, say you don't have that specific information
+- Suggest contacting the instructor for clarification when appropriate
+- Be helpful and student-friendly
+
+Syllabus Content:
 ${syllabusContent}
 
-User's question:
-${question}
+Student Question: ${question}
 
-Your answer:`;
+Please provide a helpful answer based on the syllabus:`;
 
-  const result = await model.generateContent(prompt);
-  const response = result.response;
-  return await response.text();
+  const response = await anthropic.messages.create({
+    model: 'claude-3-haiku-20240307',
+    max_tokens: 1000,
+    messages: [{
+      role: 'user',
+      content: prompt
+    }]
+  });
+
+  return response.content[0].text;
 }
 
 // Vercel serverless function handler  
@@ -155,19 +167,19 @@ module.exports = async function handler(req, res) {
       });
     }
 
-    // Step 3: If confidence is too low, fall back to Google Doc + Gemini AI
-    console.log(`🔄 Low confidence (${(match.confidence * 100).toFixed(1)}%), falling back to Google Doc + AI`);
+    // Step 3: If confidence is too low, fall back to Google Doc + Claude AI
+    console.log(`🔄 Low confidence (${(match.confidence * 100).toFixed(1)}%), falling back to Google Doc + Claude`);
     
     try {
-      const aiAnswer = await askGeminiWithGoogleDoc(question);
+      const claudeAnswer = await askClaudeWithGoogleDoc(question);
       return res.json({
-        answer: aiAnswer,
-        confidence: 0.8, // AI responses get fixed confidence
-        category: 'ai_fallback',
-        source: 'google_doc_ai'
+        answer: claudeAnswer,
+        confidence: 0.8, // Claude responses get fixed confidence
+        category: 'claude_fallback',
+        source: 'google_doc_claude'
       });
-    } catch (aiError) {
-      console.error('❌ AI fallback failed:', aiError.message);
+    } catch (claudeError) {
+      console.error('❌ Claude fallback failed:', claudeError.message);
       
       // Step 4: If everything fails, return the best database match anyway
       return res.json({
