@@ -1,0 +1,935 @@
+{
+  "courseInfo": {
+    "courseName": "Introduction to Computer Science",
+    "courseCode": "CS 101",
+    "semester": "Fall",
+    "year": "2024",
+    "instructor": "Dr. Sarah Johnson"
+  },
+  "qaPairs": [
+    {
+      "id": 1,
+      "category": "contact",
+      "keywords": [
+        "email",
+        "contact",
+        "reach",
+        "instructor",
+        "professor"
+      ],
+      "question": "What is the instructor's email address?",
+      "alternateQuestions": [
+        "How do I email the professor?",
+        "How can I contact the instructor?",
+        "What's the instructor's email?"
+      ],
+      "answer": "You can reach the instructor at sarah.johnson@university.edu"
+    },
+    {
+      "id": 2,
+      "category": "contact",
+      "keywords": [
+        "phone",
+        "call",
+        "number",
+        "telephone"
+      ],
+      "question": "What is the instructor's phone number?",
+      "alternateQuestions": [
+        "Can I call the professor?",
+        "How do I call the instructor?",
+        "What's the phone number?"
+      ],
+      "answer": "The instructor's phone number is (555) 123-4567"
+    },
+    {
+      "id": 3,
+      "category": "contact",
+      "keywords": [
+        "office",
+        "hours",
+        "meet",
+        "visit",
+        "help",
+        "available"
+      ],
+      "question": "What are the office hours?",
+      "alternateQuestions": [
+        "When can I visit the instructor?",
+        "When is the professor available?",
+        "What are office hours?"
+      ],
+      "answer": "Office hours are: Monday and Wednesday 2:00-4:00 PM"
+    },
+    {
+      "id": 4,
+      "category": "contact",
+      "keywords": [
+        "appointment",
+        "schedule",
+        "meet",
+        "outside",
+        "hours"
+      ],
+      "question": "Can I schedule an appointment outside office hours?",
+      "alternateQuestions": [
+        "Can I meet outside of office hours?",
+        "How do I schedule a meeting?",
+        "Can we meet at a different time?"
+      ],
+      "answer": "If you can't make regular office hours, email the instructor to schedule an appointment at a mutually convenient time."
+    },
+    {
+      "id": 5,
+      "category": "contact",
+      "keywords": [
+        "response",
+        "reply",
+        "email",
+        "how",
+        "long",
+        "wait"
+      ],
+      "question": "How long does the instructor take to respond to emails?",
+      "alternateQuestions": [
+        "When will the instructor email me back?",
+        "How quickly do you respond to emails?",
+        "Email response time?"
+      ],
+      "answer": "The instructor typically responds to emails within 24 hours during weekdays. For urgent matters, contact during office hours."
+    },
+    {
+      "id": 6,
+      "category": "grade",
+      "keywords": [
+        "grade",
+        "calculated",
+        "breakdown",
+        "percentage",
+        "weight"
+      ],
+      "question": "How are grades calculated?",
+      "alternateQuestions": [
+        "What's the grading breakdown?",
+        "How is my final grade determined?",
+        "What's the grading policy?"
+      ],
+      "answer": "Here's how your grade is calculated:\nGrading Policy:\nYour final grade will be calculated as follows:\n- Homework Assignments: 30%\n- Lab Exercises: 20% \n- Midterm Exam: 20%\n- Final Exam: 25%\n- Class Participation: 5%\n\nGrade Scale:"
+    },
+    {
+      "id": 7,
+      "category": "grade",
+      "keywords": [
+        "grade",
+        "scale",
+        "letter",
+        "percent",
+        "A",
+        "B",
+        "C"
+      ],
+      "question": "What is the grading scale?",
+      "alternateQuestions": [
+        "How are letter grades assigned?",
+        "What percentage is an A?",
+        "What's the grade scale?"
+      ],
+      "answer": "The grading scale is:\nGrade Scale:\nA: 90-100%, B: 80-89%, C: 70-79%, D: 60-69%, F: Below 60%"
+    },
+    {
+      "id": 8,
+      "category": "grade",
+      "keywords": [
+        "homework",
+        "assignment",
+        "weight",
+        "percent",
+        "worth"
+      ],
+      "question": "How much are homework assignments worth?",
+      "alternateQuestions": [
+        "What percentage are assignments?",
+        "How much do homework count?",
+        "Assignment weight?"
+      ],
+      "answer": "Homework assignments are worth 30% of your final grade."
+    },
+    {
+      "id": 9,
+      "category": "grade",
+      "keywords": [
+        "exam",
+        "test",
+        "midterm",
+        "final",
+        "weight",
+        "worth"
+      ],
+      "question": "How much are exams worth?",
+      "alternateQuestions": [
+        "What percentage are tests?",
+        "How much do exams count?",
+        "Test weight?"
+      ],
+      "answer": "Based on the grading policy, the midterm exam is worth 20% and the final exam is worth 25% of your final grade."
+    },
+    {
+      "id": 10,
+      "category": "grade",
+      "keywords": [
+        "participation",
+        "attendance",
+        "class",
+        "worth"
+      ],
+      "question": "How much is class participation worth?",
+      "alternateQuestions": [
+        "Do I get points for participating?",
+        "Is participation graded?",
+        "Class participation weight?"
+      ],
+      "answer": "Class participation is worth 5% of your final grade."
+    },
+    {
+      "id": 11,
+      "category": "grade",
+      "keywords": [
+        "lab",
+        "exercises",
+        "worth",
+        "weight"
+      ],
+      "question": "How much are lab exercises worth?",
+      "alternateQuestions": [
+        "What percentage are labs?",
+        "Lab weight?",
+        "How much do lab exercises count?"
+      ],
+      "answer": "Lab exercises are worth 20% of your final grade."
+    },
+    {
+      "id": 12,
+      "category": "deadline",
+      "keywords": [
+        "assignment",
+        "homework",
+        "due",
+        "when",
+        "dates"
+      ],
+      "question": "When are assignments due?",
+      "alternateQuestions": [
+        "What are the assignment due dates?",
+        "When is homework due?",
+        "Assignment schedule?"
+      ],
+      "answer": "Here are the assignment due dates:\n- Homework Assignments: 30%\n- Lab Exercises: 20% \n- Midterm Exam: 20%\n- Final Exam: 25%\n- Class Participation: 5%"
+    },
+    {
+      "id": 13,
+      "category": "deadline",
+      "keywords": [
+        "homework",
+        "1",
+        "first",
+        "due"
+      ],
+      "question": "When is Homework 1 due?",
+      "alternateQuestions": [
+        "When is the first homework due?",
+        "Homework 1 due date?",
+        "First assignment due?"
+      ],
+      "answer": "Homework 1 (Variables and Basic I/O) is due on September 15."
+    },
+    {
+      "id": 14,
+      "category": "deadline",
+      "keywords": [
+        "homework",
+        "2",
+        "second",
+        "due"
+      ],
+      "question": "When is Homework 2 due?",
+      "alternateQuestions": [
+        "When is the second homework due?",
+        "Homework 2 due date?",
+        "Second assignment due?"
+      ],
+      "answer": "Homework 2 (Conditionals and Loops) is due on September 29."
+    },
+    {
+      "id": 15,
+      "category": "deadline",
+      "keywords": [
+        "lab",
+        "1",
+        "first",
+        "due"
+      ],
+      "question": "When is Lab 1 due?",
+      "alternateQuestions": [
+        "When is the first lab due?",
+        "Lab 1 due date?",
+        "First lab due?"
+      ],
+      "answer": "Lab 1 (Python Basics) is due on September 8."
+    },
+    {
+      "id": 16,
+      "category": "deadline",
+      "keywords": [
+        "midterm",
+        "exam",
+        "test",
+        "when"
+      ],
+      "question": "When is the midterm exam?",
+      "alternateQuestions": [
+        "What's the midterm date?",
+        "When is the midterm test?",
+        "Midterm exam date?"
+      ],
+      "answer": "The midterm exam is on October 15."
+    },
+    {
+      "id": 17,
+      "category": "deadline",
+      "keywords": [
+        "final",
+        "exam",
+        "test",
+        "when"
+      ],
+      "question": "When is the final exam?",
+      "alternateQuestions": [
+        "What's the final exam date?",
+        "When is the final test?",
+        "Final exam date?"
+      ],
+      "answer": "The final exam is on December 10."
+    },
+    {
+      "id": 18,
+      "category": "policy",
+      "keywords": [
+        "late",
+        "work",
+        "assignment",
+        "penalty",
+        "policy"
+      ],
+      "question": "What is the late work policy?",
+      "alternateQuestions": [
+        "Can I submit assignments late?",
+        "What happens if I'm late?",
+        "Late penalty?"
+      ],
+      "answer": "Office Hours: Monday and Wednesday 2:00-4:00 PM, Room 204B"
+    },
+    {
+      "id": 19,
+      "category": "policy",
+      "keywords": [
+        "late",
+        "penalty",
+        "points",
+        "per",
+        "day"
+      ],
+      "question": "How much is the late penalty?",
+      "alternateQuestions": [
+        "What's the penalty for late work?",
+        "How many points off for late?",
+        "Late work penalty?"
+      ],
+      "answer": "Late assignments are penalized 10% per day late."
+    },
+    {
+      "id": 20,
+      "category": "policy",
+      "keywords": [
+        "late",
+        "maximum",
+        "how",
+        "long",
+        "week"
+      ],
+      "question": "How late can I submit an assignment?",
+      "alternateQuestions": [
+        "What's the maximum late time?",
+        "How long can assignments be late?",
+        "Late work deadline?"
+      ],
+      "answer": "No assignments will be accepted more than one week after the due date."
+    },
+    {
+      "id": 21,
+      "category": "policy",
+      "keywords": [
+        "extension",
+        "emergency",
+        "health",
+        "excuse"
+      ],
+      "question": "Can I get an extension on an assignment?",
+      "alternateQuestions": [
+        "How do I get an extension?",
+        "Can deadlines be extended?",
+        "Extension policy?"
+      ],
+      "answer": "Extensions may be granted for documented emergencies or health issues. Contact the instructor as soon as possible."
+    },
+    {
+      "id": 22,
+      "category": "policy",
+      "keywords": [
+        "attendance",
+        "required",
+        "policy",
+        "miss",
+        "absent"
+      ],
+      "question": "What is the attendance policy?",
+      "alternateQuestions": [
+        "Is attendance required?",
+        "Do I have to attend class?",
+        "Attendance policy?"
+      ],
+      "answer": "Required Materials:\n- Textbook: \"Python Programming: An Introduction to Computer Science\" by John Zelle (3rd Edition)\n- Python 3.8 or later installed on personal computer\n- Access to university computer lab"
+    },
+    {
+      "id": 23,
+      "category": "policy",
+      "keywords": [
+        "miss",
+        "classes",
+        "how",
+        "many",
+        "dropped"
+      ],
+      "question": "How many classes can I miss?",
+      "alternateQuestions": [
+        "What happens if I miss too many classes?",
+        "How many absences allowed?",
+        "Miss class limit?"
+      ],
+      "answer": "Students who miss more than 3 classes without an excuse may be dropped from the course."
+    },
+    {
+      "id": 24,
+      "category": "policy",
+      "keywords": [
+        "miss",
+        "class",
+        "email",
+        "advance",
+        "notify"
+      ],
+      "question": "What should I do if I need to miss class?",
+      "alternateQuestions": [
+        "How do I report an absence?",
+        "What if I can't come to class?",
+        "Missing class procedure?"
+      ],
+      "answer": "If you must miss class, please email the instructor in advance."
+    },
+    {
+      "id": 25,
+      "category": "logistics",
+      "keywords": [
+        "materials",
+        "textbook",
+        "required",
+        "need",
+        "buy"
+      ],
+      "question": "What materials do I need for this class?",
+      "alternateQuestions": [
+        "What textbook is required?",
+        "What do I need to buy?",
+        "Required materials?"
+      ],
+      "answer": "This course provides an introduction to the fundamental concepts of computer science including programming, algorithms, and data structures. Students will learn problem-solving techniques and develop programming skills using Python."
+    },
+    {
+      "id": 26,
+      "category": "logistics",
+      "keywords": [
+        "textbook",
+        "book",
+        "author",
+        "edition"
+      ],
+      "question": "What textbook do we use?",
+      "alternateQuestions": [
+        "Which book is required?",
+        "What's the textbook?",
+        "Book information?"
+      ],
+      "answer": "The required textbook is 'Python Programming: An Introduction to Computer Science' by John Zelle (3rd Edition)."
+    },
+    {
+      "id": 27,
+      "category": "logistics",
+      "keywords": [
+        "python",
+        "software",
+        "install",
+        "version"
+      ],
+      "question": "What version of Python do I need?",
+      "alternateQuestions": [
+        "How do I install Python?",
+        "What Python version?",
+        "Software requirements?"
+      ],
+      "answer": "You need Python 3.8 or later installed on your personal computer."
+    },
+    {
+      "id": 28,
+      "category": "logistics",
+      "keywords": [
+        "computer",
+        "lab",
+        "access",
+        "university"
+      ],
+      "question": "Do I need my own computer?",
+      "alternateQuestions": [
+        "Can I use lab computers?",
+        "Computer requirements?",
+        "Do I need a laptop?"
+      ],
+      "answer": "You need access to Python either on your personal computer or through the university computer lab."
+    },
+    {
+      "id": 29,
+      "category": "policy",
+      "keywords": [
+        "academic",
+        "integrity",
+        "cheating",
+        "policy",
+        "honesty"
+      ],
+      "question": "What is the academic integrity policy?",
+      "alternateQuestions": [
+        "What's the cheating policy?",
+        "Academic honesty policy?",
+        "What's considered cheating?"
+      ],
+      "answer": "Academic Integrity:\nAll work submitted must be your own. Collaboration on homework is permitted, but each student must submit their own solution. Copying code from the internet or other students is considered cheating and will result in course failure."
+    },
+    {
+      "id": 30,
+      "category": "policy",
+      "keywords": [
+        "collaboration",
+        "work",
+        "together",
+        "homework"
+      ],
+      "question": "Can I work with other students?",
+      "alternateQuestions": [
+        "Is collaboration allowed?",
+        "Can I work together on homework?",
+        "Group work policy?"
+      ],
+      "answer": "Collaboration on homework is permitted, but each student must submit their own solution."
+    },
+    {
+      "id": 31,
+      "category": "policy",
+      "keywords": [
+        "copying",
+        "code",
+        "internet",
+        "other",
+        "students"
+      ],
+      "question": "Can I copy code from the internet?",
+      "alternateQuestions": [
+        "Is copying code allowed?",
+        "Can I use code from online?",
+        "Code copying policy?"
+      ],
+      "answer": "Copying code from the internet or other students is considered cheating and will result in course failure."
+    },
+    {
+      "id": 32,
+      "category": "support",
+      "keywords": [
+        "support",
+        "resources",
+        "help",
+        "available",
+        "services"
+      ],
+      "question": "What support resources are available?",
+      "alternateQuestions": [
+        "Where can I get help?",
+        "What resources are there?",
+        "Support services?"
+      ],
+      "answer": "Student Support Resources:\n- Computer Science Tutoring Center: Room 150, Monday-Friday 9 AM-5 PM\n- University Writing Center: Available for help with technical writing\n- Disability Services: Contact for accommodations\n- Mental Health Services: Counseling available through Student Health"
+    },
+    {
+      "id": 33,
+      "category": "support",
+      "keywords": [
+        "tutoring",
+        "center",
+        "help",
+        "cs",
+        "computer"
+      ],
+      "question": "Is there tutoring available?",
+      "alternateQuestions": [
+        "Where can I get tutoring?",
+        "Tutoring center?",
+        "CS help?"
+      ],
+      "answer": "Yes! The Computer Science Tutoring Center is in Room 150, open Monday-Friday 9 AM-5 PM."
+    },
+    {
+      "id": 34,
+      "category": "support",
+      "keywords": [
+        "writing",
+        "center",
+        "help",
+        "papers",
+        "technical"
+      ],
+      "question": "Can I get help with writing?",
+      "alternateQuestions": [
+        "Where can I get writing help?",
+        "Writing center?",
+        "Help with papers?"
+      ],
+      "answer": "The University Writing Center is available for help with technical writing."
+    },
+    {
+      "id": 35,
+      "category": "support",
+      "keywords": [
+        "disability",
+        "services",
+        "accommodations",
+        "help"
+      ],
+      "question": "What if I need accommodations?",
+      "alternateQuestions": [
+        "Disability services?",
+        "How do I get accommodations?",
+        "Special needs?"
+      ],
+      "answer": "Contact Disability Services for accommodations and support."
+    },
+    {
+      "id": 36,
+      "category": "support",
+      "keywords": [
+        "mental",
+        "health",
+        "counseling",
+        "stress"
+      ],
+      "question": "Is mental health support available?",
+      "alternateQuestions": [
+        "Where can I get counseling?",
+        "Mental health services?",
+        "Stress help?"
+      ],
+      "answer": "Mental health services and counseling are available through Student Health."
+    },
+    {
+      "id": 37,
+      "category": "logistics",
+      "keywords": [
+        "schedule",
+        "topics",
+        "covered",
+        "syllabus",
+        "content"
+      ],
+      "question": "What topics will we cover in this course?",
+      "alternateQuestions": [
+        "What's the course schedule?",
+        "What will we learn?",
+        "Course content?"
+      ],
+      "answer": "CS 101: Introduction to Computer Science\nFall 2024"
+    },
+    {
+      "id": 38,
+      "category": "logistics",
+      "keywords": [
+        "python",
+        "programming",
+        "learn",
+        "language"
+      ],
+      "question": "What programming language will we use?",
+      "alternateQuestions": [
+        "What language do we learn?",
+        "Programming language?",
+        "What is Python?"
+      ],
+      "answer": "We will be learning Python programming throughout this course."
+    },
+    {
+      "id": 39,
+      "category": "logistics",
+      "keywords": [
+        "objectives",
+        "goals",
+        "learn",
+        "skills"
+      ],
+      "question": "What will I learn in this course?",
+      "alternateQuestions": [
+        "What are the course objectives?",
+        "Learning goals?",
+        "What skills will I gain?"
+      ],
+      "answer": "By the end of this course, you'll be able to write Python programs, understand programming concepts, analyze algorithms, and work with data structures."
+    },
+    {
+      "id": 40,
+      "category": "logistics",
+      "keywords": [
+        "introduction",
+        "programming",
+        "first",
+        "weeks"
+      ],
+      "question": "What do we cover in the first few weeks?",
+      "alternateQuestions": [
+        "What's at the beginning?",
+        "First topics?",
+        "Starting material?"
+      ],
+      "answer": "The first weeks cover Introduction to Programming and Variables and Data Types."
+    },
+    {
+      "id": 41,
+      "category": "logistics",
+      "keywords": [
+        "laptop",
+        "computer",
+        "class",
+        "bring"
+      ],
+      "question": "Should I bring a laptop to class?",
+      "alternateQuestions": [
+        "Do I need my computer in class?",
+        "Laptop policy?",
+        "Technology in class?"
+      ],
+      "answer": "Laptops are encouraged for note-taking and coding exercises, but please use technology responsibly."
+    },
+    {
+      "id": 42,
+      "category": "contact",
+      "keywords": [
+        "email",
+        "check",
+        "daily",
+        "communication"
+      ],
+      "question": "How often should I check email?",
+      "alternateQuestions": [
+        "Email policy?",
+        "Communication?",
+        "How do you contact us?"
+      ],
+      "answer": "Please check your university email daily. The instructor will respond within 24 hours during weekdays."
+    },
+    {
+      "id": 43,
+      "category": "logistics",
+      "keywords": [
+        "course",
+        "name",
+        "code",
+        "what",
+        "class"
+      ],
+      "question": "What course is this?",
+      "alternateQuestions": [
+        "What class is this?",
+        "Course information?",
+        "What's this class called?"
+      ],
+      "answer": "This is Introduction to Computer Science (CS 101) for Fall 2024."
+    },
+    {
+      "id": 44,
+      "category": "contact",
+      "keywords": [
+        "instructor",
+        "professor",
+        "teacher",
+        "who"
+      ],
+      "question": "Who is the instructor?",
+      "alternateQuestions": [
+        "Who's teaching this class?",
+        "Who is the professor?",
+        "Instructor name?"
+      ],
+      "answer": "Your instructor is Dr. Sarah Johnson."
+    },
+    {
+      "id": 45,
+      "category": "logistics",
+      "keywords": [
+        "semester",
+        "term",
+        "when",
+        "year"
+      ],
+      "question": "What semester is this class?",
+      "alternateQuestions": [
+        "When is this course offered?",
+        "What term?",
+        "Course timing?"
+      ],
+      "answer": "This course is offered in Fall 2024."
+    },
+    {
+      "id": 46,
+      "category": "assignment",
+      "keywords": [
+        "python",
+        "install",
+        "how",
+        "computer"
+      ],
+      "question": "How do I install Python on my computer?",
+      "alternateQuestions": [
+        "Python installation?",
+        "How to get Python?",
+        "Install Python?"
+      ],
+      "answer": "You need Python 3.8 or later. Download it from python.org and follow the installation instructions for your operating system."
+    },
+    {
+      "id": 47,
+      "category": "assignment",
+      "keywords": [
+        "variables",
+        "basic",
+        "io",
+        "homework",
+        "1"
+      ],
+      "question": "What is Homework 1 about?",
+      "alternateQuestions": [
+        "First homework topic?",
+        "Variables and Basic I/O?",
+        "What's in HW1?"
+      ],
+      "answer": "Homework 1 covers Variables and Basic I/O and is due on September 15."
+    },
+    {
+      "id": 48,
+      "category": "assignment",
+      "keywords": [
+        "conditionals",
+        "loops",
+        "homework",
+        "2"
+      ],
+      "question": "What is Homework 2 about?",
+      "alternateQuestions": [
+        "Second homework topic?",
+        "Conditionals and Loops?",
+        "What's in HW2?"
+      ],
+      "answer": "Homework 2 covers Conditionals and Loops and is due on September 29."
+    },
+    {
+      "id": 49,
+      "category": "deadline",
+      "keywords": [
+        "midterm",
+        "covers",
+        "topics",
+        "study"
+      ],
+      "question": "What topics are covered on the midterm?",
+      "alternateQuestions": [
+        "Midterm material?",
+        "What to study for midterm?",
+        "Midterm topics?"
+      ],
+      "answer": "The midterm will cover material from weeks 1-8, including programming basics, variables, data types, control structures, and functions."
+    },
+    {
+      "id": 50,
+      "category": "deadline",
+      "keywords": [
+        "final",
+        "covers",
+        "comprehensive",
+        "study"
+      ],
+      "question": "What's on the final exam?",
+      "alternateQuestions": [
+        "Final exam material?",
+        "What to study for final?",
+        "Final exam topics?"
+      ],
+      "answer": "The final exam is comprehensive and covers all course material including programming concepts, algorithms, and data structures."
+    },
+    {
+      "id": 51,
+      "category": "assignment",
+      "keywords": [
+        "lab",
+        "python",
+        "basics",
+        "first"
+      ],
+      "question": "What is Lab 1 about?",
+      "alternateQuestions": [
+        "First lab topic?",
+        "Python Basics lab?",
+        "What's in Lab 1?"
+      ],
+      "answer": "Lab 1 covers Python Basics and is due on September 8."
+    },
+    {
+      "id": 52,
+      "category": "assignment",
+      "keywords": [
+        "lab",
+        "functions",
+        "second"
+      ],
+      "question": "What is Lab 2 about?",
+      "alternateQuestions": [
+        "Second lab topic?",
+        "Functions lab?",
+        "What's in Lab 2?"
+      ],
+      "answer": "Lab 2 covers Functions and is due on September 22."
+    }
+  ],
+  "generatedAt": "2025-09-06T02:56:22.694Z",
+  "syllabusLength": 2991,
+  "totalQAPairs": 52,
+  "categoryCounts": {
+    "contact": 7,
+    "grade": 6,
+    "deadline": 8,
+    "policy": 10,
+    "logistics": 11,
+    "assignment": 5,
+    "support": 5
+  }
+}

@@ -1,0 +1,451 @@
+{
+  "courseInfo": {
+    "courseName": "The History of Hawaiian Music",
+    "courseCode": "MUS/HWST 176",
+    "semester": "Fall",
+    "year": "2025",
+    "instructor": "Dr. Keola Donaghy"
+  },
+  "qaPairs": [
+    {
+      "id": 1,
+      "category": "contact",
+      "keywords": ["instructor", "teacher", "professor", "contact", "name"],
+      "question": "Who is the instructor for this class?",
+      "alternateQuestions": ["Who teaches this course?", "Who is my professor?"],
+      "answer": "Your instructor is Dr. Keola Donaghy. You may address him as simply 'Keola' or 'Kumu' if you prefer."
+    },
+    {
+      "id": 2,
+      "category": "contact", 
+      "keywords": ["email", "contact", "reach", "communicate"],
+      "question": "What is the instructor's email?",
+      "alternateQuestions": ["How do I email the instructor?", "What's the professor's email address?"],
+      "answer": "Dr. Donaghy's email is donaghy@hawaii.edu. He prefers communication to be initiated by email."
+    },
+    {
+      "id": 3,
+      "category": "contact",
+      "keywords": ["office", "location", "room", "building"],
+      "question": "Where is the instructor's office?",
+      "alternateQuestions": ["What's the professor's office location?", "Where can I find the instructor?"],
+      "answer": "Dr. Donaghy's office is in Ka'a'ike 113."
+    },
+    {
+      "id": 4,
+      "category": "contact",
+      "keywords": ["office hours", "meet", "appointment", "help"],
+      "question": "What are the instructor's office hours?",
+      "alternateQuestions": ["When can I meet with the professor?", "How do I schedule time with the instructor?"],
+      "answer": "Office hours are by appointment. Contact Dr. Donaghy at donaghy@hawaii.edu to schedule a meeting."
+    },
+    {
+      "id": 5,
+      "category": "contact",
+      "keywords": ["phone", "call", "telephone", "number"],
+      "question": "What is the instructor's phone number?",
+      "alternateQuestions": ["How do I call the instructor?", "Can I phone the professor?"],
+      "answer": "Dr. Donaghy's phone number is 808-984-3570."
+    },
+    {
+      "id": 6,
+      "category": "contact",
+      "keywords": ["zoom", "virtual", "online meeting", "video call"],
+      "question": "Can I meet with the instructor on Zoom?",
+      "alternateQuestions": ["Does the instructor do video calls?", "Can we have a virtual meeting?"],
+      "answer": "Yes, Zoom meetings are available by request. Contact Dr. Donaghy by email to request a Zoom meeting."
+    },
+    {
+      "id": 7,
+      "category": "logistics",
+      "keywords": ["course", "class", "name", "title", "subject"],
+      "question": "What is the full name of this course?",
+      "alternateQuestions": ["What class is this?", "What's the course title?"],
+      "answer": "This is MUS/HWST 176: The History of Hawaiian Music. It doesn't matter which of these two classes you registered for - the content and requirements are the same."
+    },
+    {
+      "id": 8,
+      "category": "logistics",
+      "keywords": ["semester", "dates", "when", "start", "end"],
+      "question": "When does the semester run?",
+      "alternateQuestions": ["What are the semester dates?", "When does class start and end?"],
+      "answer": "The semester runs from August 25, 2025 to December 19, 2025."
+    },
+    {
+      "id": 9,
+      "category": "logistics",
+      "keywords": ["online", "asynchronous", "meeting", "time", "schedule"],
+      "question": "When does the class meet?",
+      "alternateQuestions": ["What time is class?", "Do we have to be online at specific times?"],
+      "answer": "This class is conducted completely online and asynchronously. You are not required to be logged in at any particular time to complete assignments or tests."
+    },
+    {
+      "id": 10,
+      "category": "logistics",
+      "keywords": ["textbook", "book", "materials", "required", "buy"],
+      "question": "What textbook do I need?",
+      "alternateQuestions": ["Do I need to buy a textbook?", "What materials are required?"],
+      "answer": "No textbook is required. Your instructor will provide you with all necessary reading materials."
+    },
+    {
+      "id": 11,
+      "category": "logistics",
+      "keywords": ["technology", "computer", "requirements", "equipment"],
+      "question": "What technology do I need for this class?",
+      "alternateQuestions": ["What computer requirements are there?", "What equipment do I need?"],
+      "answer": "You need: a recent computer, reliable high-speed Internet connection, speakers or headphones for high-quality audio, supported browsers (Chrome, Firefox, Safari, Edge), Adobe Reader, and digital storage."
+    },
+    {
+      "id": 12,
+      "category": "logistics",
+      "keywords": ["lamaku", "laulima", "lms", "course site"],
+      "question": "Where do I access course materials?",
+      "alternateQuestions": ["How do I get to the course website?", "Where are assignments posted?"],
+      "answer": "All readings, activities, assignments, and quizzes are found on Lamakū at https://lamaku.hawaii.edu/d2l/login."
+    },
+    {
+      "id": 13,
+      "category": "assignment",
+      "keywords": ["modules", "weekly", "schedule", "assignments"],
+      "question": "How is the course structured?",
+      "alternateQuestions": ["What's the weekly schedule?", "How are assignments organized?"],
+      "answer": "There are 16 modules, each completed over one week. Each module opens on Tuesday at noon, and all assignments and quizzes must be completed by the following Tuesday at 11:59 PM."
+    },
+    {
+      "id": 14,
+      "category": "deadline",
+      "keywords": ["due", "deadline", "when", "submit", "turn in"],
+      "question": "When are assignments due?",
+      "alternateQuestions": ["What time are things due?", "When do I submit assignments?"],
+      "answer": "All assignments and quizzes are due every Tuesday at 11:59 PM. Each week follows this same schedule."
+    },
+    {
+      "id": 15,
+      "category": "policy",
+      "keywords": ["late", "policy", "missing", "deadline"],
+      "question": "What's the late assignment policy?",
+      "alternateQuestions": ["Can I turn in late work?", "What happens if I miss a deadline?"],
+      "answer": "Late assignments are NOT accepted except under unusual circumstances, with advance notice and approval from your instructor, or in case of documentable hardship or emergency. No late submissions without prior notification and approval."
+    },
+    {
+      "id": 16,
+      "category": "policy",
+      "keywords": ["first week", "mandatory", "dropped", "participation"],
+      "question": "What happens if I don't complete first week assignments?",
+      "alternateQuestions": ["Are first week assignments mandatory?", "Can I be dropped from the class?"],
+      "answer": "First week assignments are both mandatory and critical. If you fail to complete them or email for an extension before the deadline, you will be dropped from the class. If dropped, you must explain why and get instructor approval, then email the registrar's office (uhmctc@hawaii.edu) to be added back."
+    },
+    {
+      "id": 17,
+      "category": "grade",
+      "keywords": ["grades", "grading", "breakdown", "weight"],
+      "question": "How are grades calculated?",
+      "alternateQuestions": ["What's the grading breakdown?", "How is my grade determined?"],
+      "answer": "Grades are weighted as follows: Quizzes = 30%, Assignments/Forum Discussions = 15%, Midterm Exam = 25%, Final Research Proposal/Draft/Submission = 30%."
+    },
+    {
+      "id": 18,
+      "category": "grade",
+      "keywords": ["grading scale", "percentage", "letter grade"],
+      "question": "What's the grading scale?",
+      "alternateQuestions": ["What percentage do I need for an A?", "How are letter grades assigned?"],
+      "answer": "The grading scale is: A (90-100%), B (80-89%), C (70-79%), D (60-69%), F (0-59%). No pluses or minuses are used in the UH Community College system."
+    },
+    {
+      "id": 19,
+      "category": "assignment",
+      "keywords": ["research paper", "final project", "paper"],
+      "question": "What's the final research project?",
+      "alternateQuestions": ["Do we have a final paper?", "What's the research assignment?"],
+      "answer": "There are three options: 1) Write a report on a Hawaiian music performance you attend this semester, 2) Interview a Hawaiian music performer, or 3) Undertake a special research project with instructor approval. The paper must be 5 pages, 12-point Times New Roman, double-spaced, with at least 2 sources (one academic)."
+    },
+    {
+      "id": 20,
+      "category": "deadline",
+      "keywords": ["proposal", "draft", "final paper", "due dates"],
+      "question": "When are research paper components due?",
+      "alternateQuestions": ["What are the paper deadlines?", "When do I submit my research project?"],
+      "answer": "Research paper deadlines: Proposals due Tuesday, Oct 22, 2024 at 11:59 PM; Drafts due Tuesday, Nov 19, 2024 at 11:59 PM; Final Papers due Tuesday, Dec 10, 2024 at 11:59 PM."
+    },
+    {
+      "id": 21,
+      "category": "assignment",
+      "keywords": ["midterm", "exam", "test"],
+      "question": "Is there a midterm exam?",
+      "alternateQuestions": ["When is the midterm?", "What's on the midterm?"],
+      "answer": "Yes, there is a midterm exam that includes all material covered up to that point. The midterm is scheduled for Week 9 (Pule 9). There is no final exam."
+    },
+    {
+      "id": 22,
+      "category": "logistics",
+      "keywords": ["topics", "curriculum", "what", "learn", "cover"],
+      "question": "What topics will we cover?",
+      "alternateQuestions": ["What will I learn in this class?", "What's the curriculum?"],
+      "answer": "Weekly topics include: Introduction, Instruments/Terminology/Ethnomusicology, Oli (Chant Forms), Older Hula Forms, Older Hawaiian Instruments, Later Hula Forms and Mele Hawai'i, Hīmeni (Hymns), Nā Lani 'Ehā (The Four Royals), 'Ukulele, Slack Key Guitar, Steel Guitar, Hapa-Haole, Hawaiian Renaissance, and Hawaiian Music Activism."
+    },
+    {
+      "id": 23,
+      "category": "policy",
+      "keywords": ["ai", "artificial intelligence", "plagiarism", "writing"],
+      "question": "Can I use AI for assignments?",
+      "alternateQuestions": ["Is artificial intelligence allowed?", "What about ChatGPT or other AI tools?"],
+      "answer": "AI-generated submissions are not permitted and will be treated as plagiarism. You may use AI to locate research resources, but beware of inaccurate information about Hawaiian music. Don't trust AI - verify everything it tells you. AI-based recording tools (Otter.ai, etc.) are not permitted for class conversations."
+    },
+    {
+      "id": 24,
+      "category": "policy",
+      "keywords": ["attendance", "login", "required"],
+      "question": "Is attendance required?",
+      "alternateQuestions": ["Do I have to attend class?", "Is there an attendance policy?"],
+      "answer": "As the class is completely online, attendance is not taken. However, you must log in weekly to complete assignments. You should check email and Lamakū at least once daily for updates."
+    },
+    {
+      "id": 25,
+      "category": "logistics",
+      "keywords": ["prerequisites", "requirements", "waived"],
+      "question": "What are the prerequisites for this class?",
+      "alternateQuestions": ["Do I need any previous courses?", "Can I take this without prerequisites?"],
+      "answer": "While the course catalog lists several prerequisites, the instructor will happily waive them for anyone. Contact Dr. Donaghy if you're interested in taking the class."
+    },
+    {
+      "id": 26,
+      "category": "support",
+      "keywords": ["help", "tutoring", "learning center", "support"],
+      "question": "Where can I get academic help?",
+      "alternateQuestions": ["Is tutoring available?", "Where can I get support?"],
+      "answer": "Visit The Learning Center for tutoring and academic support. Links: Tutoring (http://maui.hawaii.edu/kakoo/tutoring), Learning Resources (https://maui.hawaii.edu/tlc/home/learning-resources/)."
+    },
+    {
+      "id": 27,
+      "category": "support",
+      "keywords": ["disability", "accommodations", "services", "access"],
+      "question": "How do I get disability accommodations?",
+      "alternateQuestions": ["I need disability services", "Where do I get accommodations?"],
+      "answer": "Contact the Disability Services Counselor at 984-3227, UHMCDS@hawaii.edu, or Room C-03 in the Learning Center. Students should reach out well before the semester begins. Visit https://maui.hawaii.edu/disability/."
+    },
+    {
+      "id": 28,
+      "category": "contact",
+      "keywords": ["lamaku support", "technical help", "computer problems"],
+      "question": "Who do I contact for technical problems?",
+      "alternateQuestions": ["I'm having computer issues", "Lamakū isn't working"],
+      "answer": "For technical support: UH ITS Help Desk - email help@hawaii.edu or call 956-8883 (1-800-558-2669 from neighbor islands). Support is available 24/7 including holidays."
+    },
+    {
+      "id": 29,
+      "category": "support",
+      "keywords": ["financial aid", "money", "payment", "assistance"],
+      "question": "Where can I get financial aid help?",
+      "alternateQuestions": ["I need help paying for school", "Financial assistance?"],
+      "answer": "Contact Financial Aid at http://maui.hawaii.edu/financial/ for assistance with funding your education."
+    },
+    {
+      "id": 30,
+      "category": "logistics",
+      "keywords": ["hawaiian language", "diacritical marks", "okina", "kahako"],
+      "question": "Do I need to use Hawaiian language marks?",
+      "alternateQuestions": ["How do I type Hawaiian words correctly?", "What about ʻokina and kahakō?"],
+      "answer": "Correct diacritical marks (ʻokina and kahakō) are expected. Use the online Hawaiian dictionary at wehewehe.org. Hawaiian keyboards are available for Mac, Windows, iOS, Android, and Chrome OS."
+    },
+    {
+      "id": 31,
+      "category": "policy",
+      "keywords": ["communication", "email", "announcements", "contact"],
+      "question": "How will the instructor communicate with students?",
+      "alternateQuestions": ["How do I get class updates?", "How does the professor contact us?"],
+      "answer": "Dr. Donaghy uses Lamakū's 'Announcements' function and will communicate at least weekly about deadlines and assignments. You cannot reply directly to these emails - change the recipient to donaghy@hawaii.edu if you want to respond."
+    },
+    {
+      "id": 32,
+      "category": "assignment",
+      "keywords": ["forums", "discussions", "participation", "posts"],
+      "question": "Are there discussion forums?",
+      "alternateQuestions": ["Do we have online discussions?", "Are there forum posts required?"],
+      "answer": "Yes, early in the semester you'll use the Lamakū 'Forum' function to express thoughts on topics and questions. Students should engage respectfully and address issues rather than targeting classmates."
+    },
+    {
+      "id": 33,
+      "category": "policy",
+      "keywords": ["netiquette", "online behavior", "conduct"],
+      "question": "What are the rules for online behavior?",
+      "alternateQuestions": ["How should I act online?", "What's proper online etiquette?"],
+      "answer": "Follow proper netiquette rules. Visit 'Aloha - Online Netiquette' guidelines and '15 Rules of Netiquette for Online Discussion Boards.' Be respectful in all online interactions and follow UHMC's Student Code of Conduct."
+    },
+    {
+      "id": 34,
+      "category": "assignment",
+      "keywords": ["citation", "apa", "bibliography", "references"],
+      "question": "What citation format should I use?",
+      "alternateQuestions": ["How do I cite sources?", "What bibliography style?"],
+      "answer": "Use APA format for all citations and bibliography. Visit the library resource 'Cite Your Source!' at http://maui.hawaii.libguides.com/cite for more information."
+    },
+    {
+      "id": 35,
+      "category": "assignment",
+      "keywords": ["google docs", "draft submission", "sharing"],
+      "question": "How do I submit drafts and final papers?",
+      "alternateQuestions": ["Where do I turn in papers?", "How do I share my paper?"],
+      "answer": "Drafts and final papers must be submitted via Google Docs by sending the instructor a link. Proposals are submitted through Lamakū, not by email."
+    },
+    {
+      "id": 36,
+      "category": "policy",
+      "keywords": ["extra credit", "makeup", "additional work"],
+      "question": "Is extra credit available?",
+      "alternateQuestions": ["Can I do extra work for points?", "Are there makeup assignments?"],
+      "answer": "Dr. Donaghy does not offer extra credit for students who have not completed required assignments. There is an optional extra credit project to create a traditional Hawaiian musical instrument using a printed reference."
+    },
+    {
+      "id": 37,
+      "category": "deadline",
+      "keywords": ["final exam", "last day", "evaluation period"],
+      "question": "When is the final exam?",
+      "alternateQuestions": ["When does the class end?", "What's the final exam schedule?"],
+      "answer": "There is no final exam. The last day of instruction is December 11, 2025. The final evaluation period is December 13-20, 2025."
+    },
+    {
+      "id": 38,
+      "category": "logistics",
+      "keywords": ["work load", "hours", "time commitment", "study"],
+      "question": "How much time should I spend on this class?",
+      "alternateQuestions": ["How many hours per week?", "What's the workload?"],
+      "answer": "You should commit to working 12-15 hours per week for activities and assignments. This includes completing all readings, discussions, and quizzes."
+    },
+    {
+      "id": 39,
+      "category": "logistics",
+      "keywords": ["study group", "team", "partners", "classmates"],
+      "question": "Should I form a study group?",
+      "alternateQuestions": ["Can I work with other students?", "Are study groups recommended?"],
+      "answer": "Yes, you should form a 2-3 person study team and exchange contact information within the first two weeks. This helps with course success."
+    },
+    {
+      "id": 40,
+      "category": "support",
+      "keywords": ["library", "research", "resources", "books"],
+      "question": "How can the library help me?",
+      "alternateQuestions": ["Where do I get research help?", "Can I borrow books?"],
+      "answer": "The library offers multiple services: Borrow Technology (https://maui.hawaii.libguides.com/equipment), Library & Research Help (https://maui.hawaii.edu/library/), and research assistance for your papers."
+    },
+    {
+      "id": 41,
+      "category": "support",
+      "keywords": ["printing", "computer", "technology", "borrow"],
+      "question": "Can I print or borrow technology on campus?",
+      "alternateQuestions": ["Where can I print?", "Can I borrow a laptop?"],
+      "answer": "Yes! Visit these links: Printing (https://maui.hawaii.libguides.com/print), Borrow Technology (https://maui.hawaii.libguides.com/equipment), and UHMC IT Help (https://maui.hawaii.edu/helpdesk/)."
+    },
+    {
+      "id": 42,
+      "category": "support",
+      "keywords": ["study space", "quiet", "place", "campus"],
+      "question": "Where can I study on campus?",
+      "alternateQuestions": ["Are there study rooms?", "Can I book a study space?"],
+      "answer": "You can book study spaces at https://maui-hawaii.libcal.com/allspaces. Check the Student Support Statement webpage for more information about places to study on campus."
+    },
+    {
+      "id": 43,
+      "category": "policy",
+      "keywords": ["add", "drop", "withdraw", "deadline"],
+      "question": "When are the add/drop deadlines?",
+      "alternateQuestions": ["Can I still add this class?", "When can I withdraw?"],
+      "answer": "View the complete Academic Calendar for Fall 2025 Tuition Refund and Withdrawal Deadlines at https://maui.hawaii.edu/academic-deadlines."
+    },
+    {
+      "id": 44,
+      "category": "support",
+      "keywords": ["student life", "activities", "campus life"],
+      "question": "What student activities are available?",
+      "alternateQuestions": ["Are there student organizations?", "What's happening on campus?"],
+      "answer": "Visit Student Life at https://maui.hawaii.edu/studentlife/ for information about campus activities, organizations, and student life opportunities."
+    },
+    {
+      "id": 45,
+      "category": "support",
+      "keywords": ["title ix", "discrimination", "harassment", "safety"],
+      "question": "Who do I contact about discrimination or harassment?",
+      "alternateQuestions": ["Where do I report Title IX issues?", "I need to report inappropriate behavior"],
+      "answer": "Contact Title IX at http://maui.hawaii.edu/title-ix/ for issues related to discrimination, harassment, or sexual misconduct."
+    },
+    {
+      "id": 46,
+      "category": "support",
+      "keywords": ["security", "safety", "emergency", "campus police"],
+      "question": "Who do I contact for security issues?",
+      "alternateQuestions": ["Is there campus security?", "Who handles safety issues?"],
+      "answer": "Contact Security at http://maui.hawaii.edu/security/ for campus safety and security concerns."
+    },
+    {
+      "id": 47,
+      "category": "support",
+      "keywords": ["testing center", "exams", "quiet space"],
+      "question": "Is there a testing center?",
+      "alternateQuestions": ["Where can I take exams?", "Do you have a quiet testing space?"],
+      "answer": "Yes, visit the Testing Center at https://maui.hawaii.edu/testing/?s=testing+center for information about testing services and quiet exam spaces."
+    },
+    {
+      "id": 48,
+      "category": "support",
+      "keywords": ["my uh", "star", "registration", "grades"],
+      "question": "How do I access my student records?",
+      "alternateQuestions": ["Where do I see my grades?", "How do I register for classes?"],
+      "answer": "Use My UH (https://myuh.hawaii.edu/) for student services and STAR Services (https://www.star.hawaii.edu/studentinterface/) for registration and academic records."
+    },
+    {
+      "id": 49,
+      "category": "support",
+      "keywords": ["outreach centers", "molokai", "lanai", "hana"],
+      "question": "Are there services for neighbor island students?",
+      "alternateQuestions": ["I live on Molokaʻi, is there help?", "What about Lānaʻi students?"],
+      "answer": "If you live in Molokaʻi, Lānaʻi, or Hana, visit the UHMC Outreach Centers webpage at http://maui.hawaii.edu/outreach-centers/ for local support and services."
+    },
+    {
+      "id": 50,
+      "category": "support",
+      "keywords": ["uhmc app", "mobile", "phone", "app store"],
+      "question": "Is there a UHMC mobile app?",
+      "alternateQuestions": ["Can I get UHMC on my phone?", "Is there a mobile app?"],
+      "answer": "Yes! Download the UHMC App from the Apple App Store or Google Play. The app provides easy access to campus information and services."
+    },
+    {
+      "id": 51,
+      "category": "logistics",
+      "keywords": ["social media", "facebook", "instagram", "twitter"],
+      "question": "How can I follow UHMC on social media?",
+      "alternateQuestions": ["Is UHMC on Facebook?", "What social media does the college have?"],
+      "answer": "Follow UHMC on Facebook (https://www.facebook.com/UHMauiCollege), Instagram (@uhmaui), and Twitter (@uhmaui) for updates and campus news."
+    },
+    {
+      "id": 52,
+      "category": "assignment",
+      "keywords": ["wikipedia", "sources", "research", "prohibited"],
+      "question": "Can I use Wikipedia as a source?",
+      "alternateQuestions": ["Is Wikipedia allowed?", "What sources can't I use?"],
+      "answer": "No, you may not use Wikipedia as a reference for research papers. You also may not cite lecture notes or lectures. However, you may use Wikipedia to locate other legitimate sources."
+    },
+    {
+      "id": 53,
+      "category": "assignment",
+      "keywords": ["interview", "performer", "musician", "research option"],
+      "question": "Can I interview someone for my research project?",
+      "alternateQuestions": ["What if I want to interview a Hawaiian musician?", "Is interviewing allowed for the paper?"],
+      "answer": "Yes! One research option is to interview a performer of Hawaiian music. Include research about the individual, their performance style, how they learned Hawaiian music, and other relevant cultural information."
+    },
+    {
+      "id": 54,
+      "category": "assignment",
+      "keywords": ["performance", "attend", "live music", "concert"],
+      "question": "Can I attend a performance for my research project?",
+      "alternateQuestions": ["What if I go to a Hawaiian music concert?", "Can I write about a live performance?"],
+      "answer": "Yes! You can write a report on a Hawaiian music performance that you attend THIS SEMESTER (not something from the past). Include research and background information on the performance style and cultural elements."
+    },
+    {
+      "id": 55,
+      "category": "policy",
+      "keywords": ["syllabus", "changes", "modifications", "updates"],
+      "question": "Can the syllabus change during the semester?",
+      "alternateQuestions": ["Will assignments change?", "Is this schedule final?"],
+      "answer": "This syllabus and certain details are subject to change. While major components (curriculum, quizzes, assignments, final project) likely won't change, the instructor reserves the right to modify schedules and assignments as circumstances dictate."
+    }
+  ]
+}

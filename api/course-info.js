@@ -1,14 +1,18 @@
-const { google } = require('googleapis');
-const { GoogleGenerativeAI } = require('@google/generative-ai');
+const fs = require('fs');
+const path = require('path');
+const QAMatcher = require('../qa-matcher');
 
-// Configuration
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const DOCUMENT_ID = '1SjrxnkfMisN_SI6cfCbdsAbIc8-vCZTmdBlXBEt0ZMc';
-const SCOPES = ['https://www.googleapis.com/auth/documents.readonly'];
+// Load Q&A database
+let qaDatabase;
+let qaMatcher;
 
-// Initialize Gemini
-const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+try {
+  const dbPath = path.join(process.cwd(), 'mus176-qa-database.json');
+  qaDatabase = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+  qaMatcher = new QAMatcher(qaDatabase);
+} catch (error) {
+  console.error('❌ Failed to load Q&A database:', error);
+}
 
 // Google Docs API Authentication
 async function getAuthClient() {
@@ -115,7 +119,7 @@ ${syllabusContent.substring(0, 2000)}`;
 }
 
 // Vercel serverless function handler
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   // Enable CORS
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -137,31 +141,29 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Read syllabus content
-    const syllabusContent = await readGoogleDoc();
-    
-    if (!syllabusContent) {
-      return res.status(503).json({ error: 'Unable to access syllabus content. Please try again later.' });
+    // Check if Q&A database is loaded
+    if (!qaMatcher) {
+      return res.status(503).json({ 
+        courseName: "Service initializing",
+        courseCode: "Please try again", 
+        semester: "",
+        year: "",
+        instructor: "in a moment"
+      });
     }
 
-    // Extract course information
-    const courseInfo = await extractCourseInfo(syllabusContent);
+    // Get course information from database
+    const courseInfo = qaMatcher.getCourseInfo();
     
     res.json(courseInfo);
   } catch (err) {
     console.error('Error processing request: ' + err);
-    
-    // Check for quota exceeded error
-    if (err.message && err.message.includes('429') && err.message.includes('quota')) {
-      res.status(503).json({ 
-        courseName: "Service temporarily unavailable",
-        courseCode: "Please try again later", 
-        semester: "",
-        year: "",
-        instructor: "Contact instructor if this continues"
-      });
-    } else {
-      res.status(500).json({ error: 'An error occurred while processing your request.' });
-    }
+    res.status(500).json({ 
+      courseName: "Service error",
+      courseCode: "Contact instructor", 
+      semester: "",
+      year: "",
+      instructor: "donaghy@hawaii.edu"
+    });
   }
 }
