@@ -127,6 +127,13 @@ class QAMatcher {
         /(midterm|final) (exam|test)/,
         /assignment.*(format|requirements|length)/,
         /(quiz|test|exam).*(when|how many)/
+      ],
+      instructor: [
+        /(what|tell me about).*(book|published|writing)/,
+        /how many.*(awards|Nā Hōkū)/,
+        /(where|grew up|childhood)/,
+        /(married|family|wife)/,
+        /(technology|digital|tech).*(work|experience)/
       ]
     };
 
@@ -201,7 +208,8 @@ class QAMatcher {
       deadline: ['due', 'deadline', 'when', 'submit', 'turn in'],
       policy: ['policy', 'rule', 'allowed', 'permitted', 'can i', 'may i', 'late'],
       logistics: ['need', 'require', 'materials', 'textbook', 'technology', 'equipment'],
-      assignment: ['assignment', 'project', 'paper', 'exam', 'quiz', 'test', 'midterm', 'final']
+      assignment: ['assignment', 'project', 'paper', 'exam', 'quiz', 'test', 'midterm', 'final'],
+      instructor: ['book', 'awards', 'grew up', 'married', 'family', 'technology', 'digital', 'background', 'personal']
     };
 
     const indicators = categoryIndicators[category] || [];

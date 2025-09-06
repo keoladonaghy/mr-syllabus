@@ -117,7 +117,7 @@
       "keywords": ["due", "deadline", "when", "submit", "turn in"],
       "question": "When are assignments due?",
       "alternateQuestions": ["What time are things due?", "When do I submit assignments?"],
-      "answer": "All assignments and quizzes are due every Tuesday at 11:59 PM. Each week follows this same schedule."
+      "answer": "I do not have information on specific due dates for quizzes, discussion board posts, paper submissions and other such deadlines. Please check your class website and calendar for detailed information on deadlines. But generally speaking, all assignments and quizzes are due every Tuesday at 11:59 PM. Each week follows this same schedule."
     },
     {
       "id": 15,
@@ -125,7 +125,7 @@
       "keywords": ["late", "late policy", "late work", "late assignment", "late submission", "missing", "deadline", "after deadline"],
       "question": "What's the late assignment policy?",
       "alternateQuestions": ["Can I turn in late work?", "What happens if I miss a deadline?", "Can I submit work after the deadline?"],
-      "answer": "Late assignments are NOT accepted except under unusual circumstances, with advance notice and approval from your instructor, or in case of documentable hardship or emergency. No late submissions without prior notification and approval."
+      "answer": "Late assignments are NOT accepted except under unusual circumstances, with advance notice and approval from your instructor, or in case of documentable hardship or emergency."
     },
     {
       "id": 16,
@@ -446,6 +446,46 @@
       "question": "Can the syllabus change during the semester?",
       "alternateQuestions": ["Will assignments change?", "Is this schedule final?"],
       "answer": "This syllabus and certain details are subject to change. While major components (curriculum, quizzes, assignments, final project) likely won't change, the instructor reserves the right to modify schedules and assignments as circumstances dictate."
+    },
+    {
+      "id": 56,
+      "category": "instructor",
+      "keywords": ["book", "book title", "author", "published", "writing"],
+      "question": "What is the title of Dr. Donaghy's book?",
+      "alternateQuestions": ["Did Dr. Donaghy write a book?", "What book did the instructor publish?"],
+      "answer": "Dr. Donaghy's book is titled 'Mele On The Mauna: Perpetuating Genealogies of Hawaiian Musical Activism,' published by Indiana University Press. It discusses the role music played in the struggle to defend Maunakea."
+    },
+    {
+      "id": 57,
+      "category": "instructor",
+      "keywords": ["Nā Hōkū", "Hanohano", "awards", "honors", "recognition", "music awards"],
+      "question": "How many Nā Hōkū Hanohano Awards does Dr. Donaghy have?",
+      "alternateQuestions": ["What awards has Dr. Donaghy won?", "Has the instructor won music awards?"],
+      "answer": "Dr. Donaghy has been honored with eight Nā Hōkū Hanohano Awards as a composer, producer, and performer of Hawaiian music. Four were for CDs he produced for the Institute of Hawaiian Music program, two with his group A'ea'e, one with the rock group 'Sandemonium,' and one for co-producing Kenneth Makuakāne's recent anthology release."
+    },
+    {
+      "id": 58,
+      "category": "instructor",
+      "keywords": ["grew up", "childhood", "Maui", "Kama'ole", "background"],
+      "question": "Where did Dr. Donaghy grow up on Maui?",
+      "alternateQuestions": ["Where is the instructor from on Maui?", "Where did Dr. Donaghy spend his childhood?"],
+      "answer": "Dr. Donaghy grew up in Kama'ole on Maui and attended the old Kīhei Elementary School (now the Kīhei Youth Center) and St. Anthony High School. He spent two years at Maui Community College before moving to Hilo in 1994."
+    },
+    {
+      "id": 59,
+      "category": "instructor",
+      "keywords": ["married", "wife", "family", "personal", "spouse"],
+      "question": "Is Dr. Donaghy married?",
+      "alternateQuestions": ["Does the instructor have a family?", "Tell me about Dr. Donaghy's family"],
+      "answer": "Yes, Dr. Donaghy and his wife live in Wailuku. They have a son who lives in Puna on Hawai'i island with his wife and their granddaughter and grandson, and their daughter and another grandson live in Wailuku."
+    },
+    {
+      "id": 60,
+      "category": "instructor",
+      "keywords": ["technology", "digital", "computers", "studio", "work", "tech"],
+      "question": "Tell me about Dr. Donaghy's work in technology?",
+      "alternateQuestions": ["What technology work has Dr. Donaghy done?", "How is the instructor involved with music technology?"],
+      "answer": "Dr. Donaghy's work in technological empowerment spans decades, focusing on Hawaiian and Pacific Languages. He worked for Steely Dan's Walter Becker configuring digital music technologies, was featured in Wired Magazine in 1995 for developing Leokī (a pioneering Hawaiian-language intranet), and helped design UHMC's recording studio. His contributions ensure Hawaiian language users can meaningfully use digital devices and online environments."
     }
   ]
 }
