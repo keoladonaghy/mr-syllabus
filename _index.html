@@ -126,7 +126,7 @@
                 if (response.ok) {
                     courseInfoDiv.innerHTML = `
                         <div>${data.courseCode} - ${data.courseName} - ${data.semester} ${data.year}</div>
-                        <div>Instructor: ${data.instructor}</div>
+                        <div>Instructor: ${data.instructor}  |  <a href="https://docs.google.com/document/d/1SjrxnkfMisN_SI6cfCbdsAbIc8-vCZTmdBlXBEt0ZMc/edit" target="_blank" style="color: #007bff; text-decoration: none;">View Full Syllabus</a></div>
                     `;
                 } else {
                     courseInfoDiv.innerHTML = '<div class="loading">Course information unavailable</div>';

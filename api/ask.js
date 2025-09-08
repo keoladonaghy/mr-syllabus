@@ -1,20 +1,24 @@
 const fs = require('fs');
 const path = require('path');
 const QAMatcher = require('../qa-matcher');
+const QuestionLogger = require('../question-logger');
 const { google } = require('googleapis');
 const { JWT } = require('google-auth-library');
 const Anthropic = require('@anthropic-ai/sdk');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 
-// Load Q&A database
+// Load Q&A database and initialize logger
 let qaDatabase;
 let qaMatcher;
+let questionLogger;
 
 try {
   const dbPath = path.join(process.cwd(), 'mus176-qa-database.json');
   qaDatabase = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
   qaMatcher = new QAMatcher(qaDatabase);
+  questionLogger = new QuestionLogger();
   console.log(`✅ Loaded ${qaDatabase.qaPairs.length} Q&A pairs from database`);
+  console.log(`✅ Question logging system initialized`);
 } catch (error) {
   console.error('❌ Failed to load Q&A database:', error);
 }
@@ -170,6 +174,12 @@ Please provide a helpful answer based on the syllabus:`;
   return await response.text();
 }
 
+// Rough token estimation for cost tracking
+function estimateTokens(text) {
+  // Approximate: 1 token = 4 characters for English text
+  return Math.ceil(text.length / 4);
+}
+
 // Vercel serverless function handler  
 module.exports = async function handler(req, res) {
   // Enable CORS
@@ -198,6 +208,22 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ error: 'Please provide a question.' });
   }
 
+  const startTime = Date.now();
+  let logData = {
+    question,
+    responseTimeMs: 0,
+    tokensUsed: 0,
+    estimatedCost: 0,
+    claudeAttempted: false,
+    claudeSuccess: false,
+    geminiAttempted: false,
+    geminiSuccess: false,
+    triggeredFallback: false,
+    wasFullyAnswered: true,
+    sessionId: req.headers['x-session-id'] || null,
+    userAgent: req.headers['user-agent'] || null
+  };
+
   try {
     // Check if Q&A database is loaded
     if (!qaMatcher) {
@@ -207,9 +233,23 @@ module.exports = async function handler(req, res) {
     // Step 1: Try to find answer in pre-generated Q&A database
     const match = qaMatcher.findBestMatch(question);
     
+    // Update log data with database results
+    logData.dbConfidence = match.confidence;
+    logData.dbCategory = match.category;
+    logData.dbMatchId = match.matchedQuestion || null;
+    
     // Step 2: If confidence is high enough, return database answer (fast response)
     if (match.confidence >= 0.25) {
       console.log(`📊 Database match found: ${(match.confidence * 100).toFixed(1)}% confidence`);
+      
+      logData.responseSource = 'database';
+      logData.responseTimeMs = Date.now() - startTime;
+      
+      // Log the question asynchronously
+      if (questionLogger) {
+        questionLogger.logQuestion(logData).catch(err => console.error('Logging error:', err));
+      }
+      
       return res.json({ 
         answer: match.answer,
         confidence: match.confidence,
@@ -220,12 +260,26 @@ module.exports = async function handler(req, res) {
 
     // Step 3: Multi-tier AI fallback system
     console.log(`🔄 Low confidence (${(match.confidence * 100).toFixed(1)}%), using AI fallback`);
+    logData.triggeredFallback = true;
     
     // Try Claude API first
     if (anthropic) {
+      logData.claudeAttempted = true;
       try {
         console.log('🔄 Attempting Claude API...');
         const claudeAnswer = await askClaudeWithGoogleDoc(question);
+        
+        logData.claudeSuccess = true;
+        logData.responseSource = 'google_doc_claude';
+        logData.responseTimeMs = Date.now() - startTime;
+        logData.tokensUsed = estimateTokens(question + claudeAnswer); // Rough estimate
+        logData.estimatedCost = logData.tokensUsed * 0.000008; // Claude pricing estimate
+        
+        // Log the question asynchronously
+        if (questionLogger) {
+          questionLogger.logQuestion(logData).catch(err => console.error('Logging error:', err));
+        }
+        
         return res.json({
           answer: claudeAnswer,
           confidence: 0.8,
@@ -240,8 +294,21 @@ module.exports = async function handler(req, res) {
     
     // Try Gemini API as secondary fallback
     if (geminiModel) {
+      logData.geminiAttempted = true;
       try {
         const geminiAnswer = await askGeminiWithGoogleDoc(question);
+        
+        logData.geminiSuccess = true;
+        logData.responseSource = 'google_doc_gemini';
+        logData.responseTimeMs = Date.now() - startTime;
+        logData.tokensUsed = estimateTokens(question + geminiAnswer);
+        logData.estimatedCost = logData.tokensUsed * 0.0000015; // Gemini pricing estimate
+        
+        // Log the question asynchronously
+        if (questionLogger) {
+          questionLogger.logQuestion(logData).catch(err => console.error('Logging error:', err));
+        }
+        
         return res.json({
           answer: geminiAnswer,
           confidence: 0.7,
@@ -254,6 +321,15 @@ module.exports = async function handler(req, res) {
     }
     
     // Step 4: If all AI fails, return database match with disclaimer
+    logData.responseSource = 'database_fallback';
+    logData.responseTimeMs = Date.now() - startTime;
+    logData.wasFullyAnswered = false;
+    
+    // Log the question asynchronously
+    if (questionLogger) {
+      questionLogger.logQuestion(logData).catch(err => console.error('Logging error:', err));
+    }
+    
     return res.json({
       answer: match.answer + "\n\nNote: I couldn't access the live syllabus to provide a more detailed answer. Please check the complete syllabus in Lamakū or contact Dr. Keola Donaghy at donaghy@hawaii.edu for clarification.",
       confidence: match.confidence,
